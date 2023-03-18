@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login - 홍태의</title>
+
+<script type="text/javascript">
+	function fn_value(){
+		var fLogin = document.formLogin;
+		var ID = formLogin.user_ID.value;
+		var PW = formLogin.user_PW.value;
+		
+		if((ID.length == 0 || ID == "") || (PW.length == 0 || PW =="")){
+			alert("아이디와 비밀번호를 입력해주세요!");
+		} else {
+			fLogin.method = "post";
+			fLogin.action = "Login5";
+			fLogin.submit();
+		}
+	}
+</script>
+</head>
+<body>
+	<h1>로그인 유효성 검사</h1>
+	
+	<form name="formLogin" method="get" action="Login5" enctype="UTF-8">
+	아이디 : <input type="text" name="user_ID">
+	<br>
+	비밀번호 :	<input type="password" name="user_PW">
+	<br><br>
+	
+	<input type="hidden" name="user_address" value="부산시 사상구 괘법동">
+	
+	<input type="button" onClick="fn_value()" value="로그인">
+	<input type="reset" value="다시입력">
+	</form>
+</body>
+</html>
