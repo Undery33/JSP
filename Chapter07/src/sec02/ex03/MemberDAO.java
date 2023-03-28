@@ -1,4 +1,4 @@
-package sec02.ex02;
+package sec02.ex03;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -27,6 +27,7 @@ public class MemberDAO {
 		}
 	}
 	
+	// 추가
 	public void addMember(MemberVO memberVO) {
 		try {
 			con = dataFactory.getConnection();
@@ -37,7 +38,7 @@ public class MemberDAO {
 			
 			String query = "insert into t_member";
 			query += " (id, pwd, name, email)";
-			query += " values(?,?,?,?)";
+			query += " values(?, ?, ?, ?)";
 			System.out.println("prepareStatement : " + query);
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, id);
@@ -47,6 +48,22 @@ public class MemberDAO {
 			pstmt.executeUpdate();
 			pstmt.close();
 		} catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	// 삭제
+	public void delMember(String id) {
+		try {
+			con = dataFactory.getConnection();
+			
+			String query = "delete from t_member " + "where id=?";
+			System.out.println("prepareStatement : " + query);
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
