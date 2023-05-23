@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" 
+    import="java.util.*, sec01.ex01.*"  pageEncoding="UTF-8" 
     isELIgnored="false"  %>
     
 <% request.setCharacterEncoding("UTF-8"); %>
 
-<jsp:useBean id="m" class="sec01.ex01.MemberBean"/>
-<jsp:setProperty name="m" property="*"/>
+<jsp:useBean id="m1" class="sec01.ex01.MemberBean"/>
+<jsp:setProperty name="m1" property="*"/>
+<jsp:useBean id="m2" class="java.util.ArrayList"/>
+
 <html>
 	<head>
 		<meta charset=”UTF-8">
@@ -21,17 +23,16 @@
 		      <td width="20%"><b>주소</b></td>
 		   </tr>
 		   <tr align=center>
-		      <td><%=m.getId() %> </td>
-		      <td><%=m.getPwd()%> </td>
-		      <td><%=m.getName() %> </td>
-		      <td><%=m.getEmail() %> </td>
+		      <td>${membersList[0].id} </td>
+		      <td>${membersList[0].pwd} </td>
+		      <td>${membersList[0].name} </td>
+		      <td>${membersList[0].email} </td>
 		   </tr>  
 		   <tr align=center>
-		   <!-- 빈 id와 속성 이름으로 접근해 회원 정보 출력 -->
-		      <td>${m.id }</td>
-		      <td>${m.pwd }</td>
-		      <td>${m.name }</td>
-		      <td>${m.email }</td>
+		      <td>${membersList[1].id}</td>
+		      <td>${membersList[1].pwd}</td>
+		      <td>${membersList[1].name}</td>
+		      <td>${membersList[1].email}</td>
 		   </tr>
 		</table>
 	</body>
